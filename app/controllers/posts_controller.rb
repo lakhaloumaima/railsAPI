@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     def destroy 
         @post.destroy
     end
+    
     private 
 
     def set_post 

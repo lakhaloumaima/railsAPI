@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   #resources :users 
   resources :registrations 
   resources :sessions 
+  resources :list_users
   # Defines the root path route ("/")
   # root "articles#index"
 end
