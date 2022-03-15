@@ -4,9 +4,9 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       
       t.string :commentClient 
       t.string :commentFreelancer
-      t.integer :id_mission 
 
       t.belongs_to :mission , foreign_key: true
+      t.belongs_to :user , foreign_key: true
 
       t.timestamps
     end

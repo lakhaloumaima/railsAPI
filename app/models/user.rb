@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :educations
   has_many :experiences
 
+  has_many :reviews 
+
   has_many :missions 
 
   has_one_attached :image
