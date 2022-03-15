@@ -41,10 +41,13 @@ class CategoriesController < ApplicationController
 
     private
 
-
     def post_params
-        params.permit(:name, :image)
+        params.require(:category).permit!
     end
+
+    #def post_params
+    #    params.permit(:name, :image)
+    #end
 
     def set_post
         @category = Category.find(params[:id])

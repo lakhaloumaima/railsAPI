@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :users , only: [:index, :show , :update, :destroy]
 
+  resources :admin, only: [:show, :index, :update, :destroy]
+
   resources :missions, only: [:create, :index, :show , :update, :destroy]
 
   resources :categories, only: [:create, :index, :show , :update, :destroy]
