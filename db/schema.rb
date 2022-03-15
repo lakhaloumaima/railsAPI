@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_14_210237) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_15_092132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,8 +64,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_14_210237) do
     t.string "jobType"
     t.string "description"
     t.string "entreprise"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
   end
 
   create_table "missions", force: :cascade do |t|
@@ -77,8 +79,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_14_210237) do
     t.string "contrat"
     t.string "postulated"
     t.string "filepath"
+    t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_missions_on_category_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -120,4 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_14_210237) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "educations", "users"
+  add_foreign_key "experiences", "users"
+  add_foreign_key "missions", "categories"
+  add_foreign_key "missions", "users"
 end

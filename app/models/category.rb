@@ -2,6 +2,8 @@ class Category < ApplicationRecord
   
   validates_presence_of :name, :image 
 
+  has_many :missions 
+
   has_one_attached :image
 
   # validates :image, attached: true

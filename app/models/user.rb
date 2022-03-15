@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   
   has_many :educations
+  has_many :experiences
 
   has_many :missions 
 
